@@ -32,16 +32,20 @@ def drop_rows(df, threshold=1.0):
     df.drop(df[(df.iloc[:, 1:] > 0).sum(axis=1) / (len(df.columns)-1) < percentage].index, inplace=True)
 
 
+def drop_columns(df, threshold_1, threshold_2=None):
+    df.drop(df.columns[[False] + list(df.iloc[:, 1:].sum() < threshold_1)], axis=1, inplace=True)
+
+
 def preprocess(fpath, save_path):
-    df = pd.read_csv('../data/drop-1-percent/'+fpath)
+    df = pd.read_csv(fpath)
 
     print(f'\t\t Original shape: {df.shape}')
 
+    # drop columns where sum of positive values is less than threshold_1
+    drop_columns(df, 1000)
+
     # drop rows containing fewer than threshold percents of columns > 0
     drop_rows(df)
-
-    # columns = df['Index']
-    # df = df.T
 
     print(f'\t\t After parsing shape: {df.shape}')
 
@@ -50,10 +54,11 @@ def preprocess(fpath, save_path):
 
 
 def main():
+    # sample_paths = get_csv_files('../data/drop-1-percent/')
     n_samples = len(sample_paths)
     for i in range(n_samples):
         print(f'{i + 1}/{n_samples} -> {(i + 1) / n_samples:.2f}\t\t Parsing {sample_folders[i]}.')
-        preprocess(sample_paths[i], '../data/drop-1-percent/'+sample_folders[i]+'.csv')
+        preprocess(sample_paths[i], '../data/drop-1000-1/'+sample_folders[i]+'.csv')
     # preprocess(sample_paths[0], '../data/drop-1-p-t/'+sample_paths[0])
 
 

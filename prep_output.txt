@@ -77,3 +77,170 @@ process 1:
 		 Original shape: (33538, 6576)
 		 After parsing shape: (10696, 6576)
 		 Data saved on path: ../data/drop-1-percent/GSM3892576.csv
+
+process 1 + 2:
+	 Drop columns where sum of positive values is less than 1000
+	 + Droping all rows where number of positive values is less than one percent of total columns number
+
+1/19 -> 0.05		 Parsing GSM2560245.
+		 Original shape: (32738, 3640)
+		 After parsing shape: (5682, 1481)
+		 Data saved on path: ../data/drop-1-1000/GSM2560245.csv
+2/19 -> 0.11		 Parsing GSM2560246.
+		 Original shape: (32738, 4247)
+		 After parsing shape: (5409, 1186)
+		 Data saved on path: ../data/drop-1-1000/GSM2560246.csv
+3/19 -> 0.16		 Parsing GSM2560247.
+		 Original shape: (32738, 6146)
+		 After parsing shape: (5311, 1500)
+		 Data saved on path: ../data/drop-1-1000/GSM2560247.csv
+4/19 -> 0.21		 Parsing GSM2560248.
+		 Original shape: (35635, 14620)
+		 After parsing shape: (7135, 10161)
+		 Data saved on path: ../data/drop-1-1000/GSM2560248.csv
+5/19 -> 0.26		 Parsing GSM2560249.
+		 Original shape: (35635, 14447)
+		 After parsing shape: (6808, 10868)
+		 Data saved on path: ../data/drop-1-1000/GSM2560249.csv
+6/19 -> 0.32		 Parsing GSM3087619.
+		 Original shape: (33694, 4976)
+		 After parsing shape: (10482, 4976)
+		 Data saved on path: ../data/drop-1-1000/GSM3087619.csv
+7/19 -> 0.37		 Parsing GSM3087622.
+		 Original shape: (33694, 2934)
+		 After parsing shape: (9560, 2672)
+		 Data saved on path: ../data/drop-1-1000/GSM3087622.csv
+8/19 -> 0.42		 Parsing GSM3087624.
+		 Original shape: (33694, 2827)
+		 After parsing shape: (9845, 2820)
+		 Data saved on path: ../data/drop-1-1000/GSM3087624.csv
+9/19 -> 0.47		 Parsing GSM3087626.
+		 Original shape: (33694, 3900)
+		 After parsing shape: (9775, 3900)
+		 Data saved on path: ../data/drop-1-1000/GSM3087626.csv
+10/19 -> 0.53		 Parsing GSM3169075.
+		 Original shape: (58302, 3373)
+		 After parsing shape: (11148, 3353)
+		 Data saved on path: ../data/drop-1-1000/GSM3169075.csv
+11/19 -> 0.58		 Parsing GSM3478791.
+		 Original shape: (33694, 3532)
+		 After parsing shape: (10771, 3527)
+		 Data saved on path: ../data/drop-1-1000/GSM3478791.csv
+12/19 -> 0.63		 Parsing GSM3478792.
+		 Original shape: (33694, 4487)
+		 After parsing shape: (10205, 4486)
+		 Data saved on path: ../data/drop-1-1000/GSM3478792.csv
+13/19 -> 0.68		 Parsing GSM3892570.
+		 Original shape: (33694, 7661)
+		 After parsing shape: (11697, 7661)
+		 Data saved on path: ../data/drop-1-1000/GSM3892570.csv
+14/19 -> 0.74		 Parsing GSM3892571.
+		 Original shape: (33694, 8780)
+		 After parsing shape: (11269, 8780)
+		 Data saved on path: ../data/drop-1-1000/GSM3892571.csv
+15/19 -> 0.79		 Parsing GSM3892572.
+		 Original shape: (33694, 4958)
+		 After parsing shape: (11220, 4958)
+		 Data saved on path: ../data/drop-1-1000/GSM3892572.csv
+16/19 -> 0.84		 Parsing GSM3892573.
+		 Original shape: (33694, 2000)
+		 After parsing shape: (12687, 2000)
+		 Data saved on path: ../data/drop-1-1000/GSM3892573.csv
+17/19 -> 0.89		 Parsing GSM3892574.
+		 Original shape: (33694, 1191)
+		 After parsing shape: (13555, 1191)
+		 Data saved on path: ../data/drop-1-1000/GSM3892574.csv
+18/19 -> 0.95		 Parsing GSM3892575.
+		 Original shape: (33694, 2892)
+		 After parsing shape: (11949, 2892)
+		 Data saved on path: ../data/drop-1-1000/GSM3892575.csv
+19/19 -> 1.00		 Parsing GSM3892576.
+		 Original shape: (33538, 6576)
+		 After parsing shape: (10696, 6575)
+		 Data saved on path: ../data/drop-1-1000/GSM3892576.csv
+
+Process finished with exit code 0
+
+
+process 2 + 1:
+	 Droping all rows where number of positive values is less than one percent of total columns number
+	 Drop columns where sum of positive values is less than 1000
+
+ 1/19 -> 0.05		 Parsing GSM2560245.
+		 Original shape: (32738, 3640)
+		 After parsing shape: (6706, 1594)
+		 Data saved on path: ../data/drop-1000-1/GSM2560245.csv
+2/19 -> 0.11		 Parsing GSM2560246.
+		 Original shape: (32738, 4247)
+		 After parsing shape: (6606, 1308)
+		 Data saved on path: ../data/drop-1000-1/GSM2560246.csv
+3/19 -> 0.16		 Parsing GSM2560247.
+		 Original shape: (32738, 6146)
+		 After parsing shape: (6876, 1664)
+		 Data saved on path: ../data/drop-1000-1/GSM2560247.csv
+4/19 -> 0.21		 Parsing GSM2560248.
+		 Original shape: (35635, 14620)
+		 After parsing shape: (7488, 10420)
+		 Data saved on path: ../data/drop-1000-1/GSM2560248.csv
+5/19 -> 0.26		 Parsing GSM2560249.
+		 Original shape: (35635, 14447)
+		 After parsing shape: (7084, 11085)
+		 Data saved on path: ../data/drop-1000-1/GSM2560249.csv
+6/19 -> 0.32		 Parsing GSM3087619.
+		 Original shape: (33694, 4976)
+		 After parsing shape: (10482, 4976)
+		 Data saved on path: ../data/drop-1000-1/GSM3087619.csv
+7/19 -> 0.37		 Parsing GSM3087622.
+		 Original shape: (33694, 2934)
+		 After parsing shape: (9699, 2682)
+		 Data saved on path: ../data/drop-1000-1/GSM3087622.csv
+8/19 -> 0.42		 Parsing GSM3087624.
+		 Original shape: (33694, 2827)
+		 After parsing shape: (9845, 2823)
+		 Data saved on path: ../data/drop-1000-1/GSM3087624.csv
+9/19 -> 0.47		 Parsing GSM3087626.
+		 Original shape: (33694, 3900)
+		 After parsing shape: (9775, 3900)
+		 Data saved on path: ../data/drop-1000-1/GSM3087626.csv
+10/19 -> 0.53		 Parsing GSM3169075.
+		 Original shape: (58302, 3373)
+		 After parsing shape: (11141, 3356)
+		 Data saved on path: ../data/drop-1000-1/GSM3169075.csv
+11/19 -> 0.58		 Parsing GSM3478791.
+		 Original shape: (33694, 3532)
+		 After parsing shape: (10771, 3532)
+		 Data saved on path: ../data/drop-1000-1/GSM3478791.csv
+12/19 -> 0.63		 Parsing GSM3478792.
+		 Original shape: (33694, 4487)
+		 After parsing shape: (10205, 4487)
+		 Data saved on path: ../data/drop-1000-1/GSM3478792.csv
+13/19 -> 0.68		 Parsing GSM3892570.
+		 Original shape: (33694, 7661)
+		 After parsing shape: (11697, 7661)
+		 Data saved on path: ../data/drop-1000-1/GSM3892570.csv
+14/19 -> 0.74		 Parsing GSM3892571.
+		 Original shape: (33694, 8780)
+		 After parsing shape: (11269, 8780)
+		 Data saved on path: ../data/drop-1000-1/GSM3892571.csv
+15/19 -> 0.79		 Parsing GSM3892572.
+		 Original shape: (33694, 4958)
+		 After parsing shape: (11220, 4958)
+		 Data saved on path: ../data/drop-1000-1/GSM3892572.csv
+16/19 -> 0.84		 Parsing GSM3892573.
+		 Original shape: (33694, 2000)
+		 After parsing shape: (12687, 2000)
+		 Data saved on path: ../data/drop-1000-1/GSM3892573.csv
+17/19 -> 0.89		 Parsing GSM3892574.
+		 Original shape: (33694, 1191)
+		 After parsing shape: (13555, 1191)
+		 Data saved on path: ../data/drop-1000-1/GSM3892574.csv
+18/19 -> 0.95		 Parsing GSM3892575.
+		 Original shape: (33694, 2892)
+		 After parsing shape: (11949, 2892)
+		 Data saved on path: ../data/drop-1000-1/GSM3892575.csv
+19/19 -> 1.00		 Parsing GSM3892576.
+		 Original shape: (33538, 6576)
+		 After parsing shape: (10696, 6576)
+		 Data saved on path: ../data/drop-1000-1/GSM3892576.csv
+
+Process finished with exit code 0
