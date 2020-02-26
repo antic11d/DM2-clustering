@@ -32,8 +32,8 @@ csv_3 = ['ENSG00000237491_#AL669831.5', 'ENSG00000225880_#LINC00115',
          'ENSG00000198695_#MT-ND6', 'ENSG00000198727_#MT-CYB']
 
 
-def intersection(lst1, lst2):
-    return lst1 & set(lst2)
+def intersection(intersect, lst2):
+    return set([value for value in lst2 if value in intersect])
 
 
 intersect = set(csv_1)
@@ -44,3 +44,7 @@ for csv in csvs[1:]:
 
 
 print(intersect)
+print(len(intersect))
+
+
+
