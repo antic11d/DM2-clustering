@@ -1,0 +1,36 @@
+group_1
+	Parsing GSM3087619
+	Parsing GSM3478792
+	Parsing GSM3892570
+	Parsing GSM3892571
+	Parsing GSM3169075
+	Dropping genes...
+	Shape after parsing: (28914, 10911)
+	Saving data on the path ../data/group_1/data.csv
+group_2
+	Parsing GSM3087622
+	Parsing GSM3087624
+	Parsing GSM3087626
+	Dropping genes...
+	Shape after parsing: (9119, 6391)
+	Saving data on the path ../data/group_2/data.csv
+group_3
+	Parsing GSM3892572
+	Parsing GSM3892573
+	Parsing GSM3892574
+	Parsing GSM3892575
+	Parsing GSM3892576
+	Dropping genes...
+	Shape after parsing: (17586, 10527)
+	Saving data on the path ../data/group_3/data.csv
+group_4
+	Parsing GSM2560245
+	Parsing GSM2560246
+	Parsing GSM2560247
+	Parsing GSM2560248
+	Parsing GSM2560249
+	Dropping genes...
+	Shape after parsing: (18506, 6232)
+	Saving data on the path ../data/group_4/data.csv
+
+Process finished with exit code 0
