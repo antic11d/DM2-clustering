@@ -1,5 +1,7 @@
 import pandas as pd
 import os
+import re
+import csv
 
 # Relative path to folder containing samples
 prefix = '../../Projekat_1/'
@@ -109,8 +111,17 @@ def prepare_genome_to_human_map():
     return maps
 
 
+# ensg0000123456_#LYL1 ide u
+# E123456#LYL1
+def extract(ensg):
+    search_part = ensg[4:]
+    hit = re.search('0+', search_part)
+    result = 'E' + search_part[hit.end():]
+    return result
+
+
 def map_genome_to_human(columns, maps, genome_to_human_csv_mapping, genome_value):
-    return [column + '_' + maps[genome_to_human_csv_mapping[genome_value]][column] for column in columns]
+    return [extract(column) + maps[genome_to_human_csv_mapping[genome_value]][column] for column in columns]
 
 
 def main():
@@ -118,8 +129,8 @@ def main():
 
     maps = prepare_genome_to_human_map()
     genome_to_human_csv_mapping = {
-        'hg19': 0,
-        'hg38': 1,
+        'hg19': 2,
+        'hg38': 2,
         'GRCh38': 2,
         'GRCh38 version 90': 2
     }
@@ -136,9 +147,14 @@ def main():
         genome_value = sample_to_genome_mapping[group[0]]
 
         resulting.columns = map_genome_to_human(resulting.columns, maps, genome_to_human_csv_mapping, genome_value)
+        print(f'\tShape after parsing: {resulting.shape}')
 
         os.mkdir(join('../data', group_id))
-        print(f'\tShape after parsing: {resulting.shape}')
+
+        print(f'\tSaving columns: ../data/{group_id}/columns_{i+1}.csv')
+
+        out = csv.writer(open(f'../data/{group_id}/columns_{i+1}.csv', "w"), delimiter=',', quoting=csv.QUOTE_ALL)
+        out.writerow(resulting.columns)
 
         print(f'\tSaving data on the path ../data/{group_id}/data.csv')
         resulting.to_csv(join('../data', group_id) + '/data.csv')
