@@ -36,15 +36,10 @@ def intersection(intersect, lst2):
     return set([value for value in lst2 if value in intersect])
 
 
-intersect = set(csv_1)
-csvs = [csv_2, csv_3]
+def list_intersection(list_of_columns):
+    intersect = set(list_of_columns[0])
 
-for csv in csvs[1:]:
-    intersect = intersection(intersect, csv)
+    for csv in list_of_columns[1:]:
+        intersect = intersection(intersect, csv)
 
-
-print(intersect)
-print(len(intersect))
-
-
-
+    return intersect
