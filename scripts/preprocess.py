@@ -4,7 +4,7 @@ import os
 # Relative path to folder containing samples
 prefix = '../../Projekat_1/'
 
-groups = [
+groups = [['GSM3087619'],
           ['GSM3087619', 'GSM3478792', 'GSM3892570', 'GSM3892571', 'GSM3169075'],
           ['GSM3087622', 'GSM3087624', 'GSM3087626'],
           ['GSM3892572', 'GSM3892573', 'GSM3892574', 'GSM3892575', 'GSM3892576'],
@@ -94,9 +94,11 @@ def prepare_genom_sample(genome_sample):
 
 def test_mapping(sample_to_genome_mapping):
     for i, group in enumerate(groups):
+        print('Group: {}'.format(i))
         found_genomes = set([])
         for gsm in group:
             genome_value = sample_to_genome_mapping[gsm]
+            print(genome_value)
             found_genomes.add(genome_value)
             if len(found_genomes) > 2:
                 print('Unable to join group{}'.format(i))
@@ -109,9 +111,27 @@ def map_columns(columns, genome_value):
     return [column + '_' + genome_value + '_CCT3' for column in columns]
 
 
+def prepare_genome_to_human_map():
+    keys = common_human_list['ENSG_ID']
+    mapping_columns = ['hg19', 'hg38', 'Ensembl_GRCh38.p12_rel94']
+    maps = []
+    for column in mapping_columns:
+        maps.append(dict(zip(keys, common_human_list[column])))
+
+    return maps
+
+
+def map_genome_to_human(columns, maps, genome_to_human_csv_mapping, genome_value):
+    return [column + '_' + maps[genome_to_human_csv_mapping[genome_value]][column] for column in columns]
+
+
 def main():
     sample_to_genome_mapping = prepare_genom_sample(genome_sample)
     test_mapping(sample_to_genome_mapping)
+
+    maps = prepare_genome_to_human_map()
+    genome_to_human_csv_mapping = {'hg19': 0, 'GRCh38': 2,
+                                   'GRCh38 version 90': 2}
 
     for i, group in enumerate(groups):
 
@@ -129,7 +149,7 @@ def main():
 
         genome_value = sample_to_genome_mapping[group[0]]
         print(resulting.columns)
-        resulting.columns = map_columns(resulting.columns, genome_value)
+        resulting.columns = map_genome_to_human(resulting.columns, maps, genome_to_human_csv_mapping, genome_value)
         print(resulting.columns)
         os.mkdir(join('../data', group_id))
         print(f'\tShape after parsing: {resulting.shape}')
