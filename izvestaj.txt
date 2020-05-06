@@ -1,0 +1,21 @@
+(a, b) - a je broj redova (celija), b je broj kolona (gena)
+
+group_1
+	Dimenzije nakon preseka kolona svih sample-ova: 	(28914, 5475)
+	Samples: 	['GSM3087619', 'GSM3478792', 'GSM3892570', 'GSM3892571', 'GSM3169075']
+
+group_2
+	Dimenzije nakon preseka kolona svih sample-ova: 	(9119, 5475)
+	Samples: 	['GSM3087622', 'GSM3087624', 'GSM3087626']
+
+group_3
+	Dimenzije nakon preseka kolona svih sample-ova: 	(17586, 5475)
+	Samples: 	['GSM3892572', 'GSM3892573', 'GSM3892574', 'GSM3892575', 'GSM3892576']
+
+
+group_4
+	Dimenzije nakon preseka kolona svih sample-ova: 	(18506, 5475)
+	Samples: 	['GSM2560245', 'GSM2560246', 'GSM2560247', 'GSM2560248', 'GSM2560249']
+
+NAPOMENA:
+	Jedna od kolona predstavlja GSMxxx_y oznake celija
