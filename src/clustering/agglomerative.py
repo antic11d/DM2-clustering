@@ -1,13 +1,7 @@
 import pandas as pd
 import scipy.cluster.hierarchy as shc 
 import scipy.spatial.distance as ssd
-import matplotlib.pyplot as plt
 from os.path import join as join
-import os
-import numpy as np
-import seaborn as sns
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib.colors import ListedColormap
 from pathlib import Path
 import utils
 
