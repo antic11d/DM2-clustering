@@ -4,9 +4,6 @@ import re
 import csv
 import argparse
 
-# Relative path to folder containing samples
-prefix = '../../Projekat_1/'
-
 groups = [
     ['GSM3087619', 'GSM3478792', 'GSM3892570', 'GSM3892571', 'GSM3169075'],
     ['GSM3087622', 'GSM3087624', 'GSM3087626'],
