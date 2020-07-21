@@ -1,3 +1,4 @@
+import pandas as pd
 import sklearn.metrics as metrics
 from os.path import join as join
 import argparse
@@ -10,25 +11,20 @@ def main():
     parser.add_argument('--save_path', help='Absolute path for saving report csv')
     args = parser.parse_args()
 
-    sample_paths = [f'{args.samples_path}/data_{i}.csv' for i in range(1, 5)]
-    report_df = pd.DataFrame(columns=['dataset', 'metric', 'method', 'score'])
+    sample_paths = [f'{args.samples_path}/group_{i}/data_{i}.csv' for i in range(1, 5)]
+    report_df = pd.DataFrame(columns=['dataset', 'metric', 'parameter', 'score'])
 
     for i, sample in enumerate(sample_paths):
         df = pd.read_csv(sample)
         df.index = df['Unnamed: 0']
         df = df.drop('Unnamed: 0', axis=1)
 
-        sample_path = f'data_{i+1}'
-        print(f'{sample_path}')
+        sample_path = f'data-{i+1}'
 
-        for distance in ['cosine', 'jaccard']:
-            print(f'\t {distance}')
-
-            for method in ['average', 'ward']:
-                print(f'\t\t {method}')
-
+        for distance in ['cosine']:
+            for method in [3, 5]:
                 path = join(args.labels_folder, f'{sample_path}/{distance}_{method}')
-                lbl_path = join(path, f'{sample_path}_{distance}_{method}.csv')
+                lbl_path = join(path, f'labels.csv')
 
                 df_labels = pd.read_csv(lbl_path)
                 df_labels = df_labels.drop('Unnamed: 0', axis=1)
@@ -39,10 +35,6 @@ def main():
                     { 'dataset': sample_path, 'metric': distance, 'method': method, 'score': score}, 
                     ignore_index=True
                 )
-                print(f'\t\t Score: {score}')
-                
-        print('Done!')
-        print('-------------------------------------------------\n')  
         
     report_df.to_csv(args.save_path)
 
