@@ -32,7 +32,7 @@ def main():
                 score = metrics.silhouette_score(df, df_labels['labels'], metric=distance)
                 
                 report_df = report_df.append(
-                    { 'dataset': sample_path, 'metric': distance, 'method': method, 'score': score}, 
+                    { 'dataset': sample_path, 'metric': distance, 'parameter': method, 'score': score}, 
                     ignore_index=True
                 )
         
