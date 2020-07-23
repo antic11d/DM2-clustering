@@ -14,6 +14,8 @@ def main():
     sample_paths = [f'{args.samples_path}/group_{i}/data_{i}.csv' for i in range(1, 5)]
     report_df = pd.DataFrame(columns=['dataset', 'metric', 'parameter', 'score'])
 
+    n_clusters = [[3, 4], [2], [2], [2]]
+
     for i, sample in enumerate(sample_paths):
         df = pd.read_csv(sample)
         df.index = df['Unnamed: 0']
@@ -21,9 +23,9 @@ def main():
 
         sample_path = f'data-{i+1}'
 
-        for distance in ['cosine']:
-            for method in [3, 5]:
-                path = join(args.labels_folder, f'{sample_path}/{distance}_{method}')
+        for j, distance in enumerate(['euclidean']):
+            for method in n_clusters[i]:
+                path = join(args.labels_folder, f'{sample_path}/discretize_{method}')
                 lbl_path = join(path, f'labels.csv')
 
                 df_labels = pd.read_csv(lbl_path)

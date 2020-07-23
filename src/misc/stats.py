@@ -22,19 +22,21 @@ def main():
     parser.add_argument('--algorithm', help='Name of the algorithm which should be evaluated')
     args = parser.parse_args()
 
-    distances = ['cosine']
-    methods = [3, 5]
+    distances = ['discretize']
+    methods = [3]
 
     paths = [os.path.join(args.samples_path, f'group_{i}/data_{i}.csv') for i in range(1, 5)]
     print(paths)
 
     for i, path in enumerate(paths):
+        if i != 0:
+            continue
         df = pd.read_csv(path)
         stats_df = pd.DataFrame(columns=['sample', 'label', 'cluster'])
         stats_df['sample'] = df['Unnamed: 0'].apply(lambda x: x[:x.find('_')])
         for distance in distances:
             for method in methods:
-                save_prefix = f'../results/{args.algorithm}/data-{i+1}/{distance}_{method}'
+                save_prefix = f'../seminarski-IP2/results/{args.algorithm}/data-{i+1}/{distance}_{method}'
                 labels_df = pd.read_csv(os.path.join(save_prefix, f'labels.csv'))
                 stats_df['label'] = labels_df['labels']
                 calculate_stats(stats_df, save_prefix)   

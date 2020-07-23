@@ -9,7 +9,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--samples_folder', help='Absolute path for data folder')
     parser.add_argument('--save_folder', help='Absolute path for saving folder')
-    parser.add_argument('--save_path', help='Absolute path for saving report csv')
     parser.add_argument('--p', help='Value for dendogram depth')
     args = parser.parse_args()
 
