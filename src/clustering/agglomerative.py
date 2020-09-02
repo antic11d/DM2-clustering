@@ -14,7 +14,7 @@ def main():
 
     sample_paths, save_pref = get_paths(args.data_folder, args.output_folder)
 
-    # Should be determined based on data 
+    # Should be determined based on data and previous research
     distances = ['cosine', 'jaccard']
     methods = ['average', 'ward']
 
@@ -32,7 +32,6 @@ def main():
                 
                 cluster_type = f'{distance}_{link}'
                 plt_title = f'data_{i}, shape:{df.shape}:\n{cluster_type}, coph={coph}'
-                
                 
                 folder = save_pref[i]  / cluster_type
                 folder.mkdir(exist_ok=True, parents=True)
