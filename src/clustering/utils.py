@@ -7,6 +7,14 @@ import scipy.cluster.hierarchy as shc
 from sklearn.neighbors import NearestNeighbors
 from kneebow.rotor import Rotor
 import numpy as np
+from pathlib import Path
+
+def get_paths(data_folder, output_folder):
+    sample_paths = list(Path(data_folder).glob('*.csv'))
+
+    Path(output_folder).mkdir(exist_ok=True)
+    save_pref = [Path(output_folder, path.parts[-1][:path.parts[-1].rfind('.csv')]) for path in sample_paths]
+    return sample_paths, save_pref
 
 def dbscan_knee(X, save_path, metric):
     neigh = NearestNeighbors(n_neighbors=3, metric=metric) 
